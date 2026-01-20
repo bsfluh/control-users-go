@@ -10,7 +10,6 @@ import (
 )
 
 func Menu(service *service.UserService, scanner *bufio.Scanner) {
-	//user := model.User{}
 	for {
 		fmt.Println("What do you want to do?")
 		fmt.Println("1)add users switch status and name.\n2)Display users switch true status.\n3)Update status by name.\n4)Found user by name.5)Display all users\n6)Delete user by name\n7)End program.")

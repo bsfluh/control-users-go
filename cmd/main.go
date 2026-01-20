@@ -10,10 +10,18 @@ import (
 	"control_users/ui"
 	"log"
 	"os"
+
+	"github.com/joho/godotenv"
 )
 
 func main() {
-	cfg := config.Load()
+	if err := godotenv.Load(); err != nil {
+		log.Printf("Warning: .env file not found: %v", err)
+	}
+	cfg, err := config.Load()
+	if err != nil {
+		log.Fatal("erroc config, %v", err)
+	}
 	db, err := db.NewPostgresDB(cfg)
 	if err != nil {
 		log.Fatal("db connection err: %v", err)
